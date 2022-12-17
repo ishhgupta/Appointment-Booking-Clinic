@@ -1,0 +1,239 @@
+{
+	"info": {
+		"_postman_id": "5457aee9-640e-4b91-8957-9461401914f3",
+		"name": "Healthblox",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "14207549"
+	},
+	"item": [
+		{
+			"name": "Register the user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "'Accept'",
+						"value": " 'application/json',",
+						"type": "text"
+					},
+					{
+						"key": "'Content-Type'",
+						"value": " 'application/json',",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\" : \"Patient-4\",\n    \"last_name\" : \"xxx\",\n    \"email\" : \"patient4@gmail.com\",\n    \"password\" : \"1234\",\n    \"role\": \"patient\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjNhMDcxNjIxMDczYTM0NGU3NzM1NDNiIiwiZW1haWwiOiJyZWNlcHRpb24xQGdtYWlsLmNvbSIsImlhdCI6MTY3MTQ1OTE3MCwiZXhwIjoxNjcxNDY2MzcwfQ._AQWAB2XJqxj5yWDN965kJ-gqx0bgrsHHjmXCscDiAE",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\" : \"reception1@gmail.com\",\n    \"password\" : \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch myappointments - doctor",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "\"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM0NTg5YTM1Njk4N2VhNjJjMzg3MzRlIiwiZW1haWwiOiJhYmNAZ21haWwuY29tIiwiaWF0IjoxNjY1NTAxNjAzLCJleHAiOjE2NjU1MDg4MDN9.ctmwsZfzuKk9fKzvOB1BuWO7--qzoZD5rZOxOUa5MZQ\"",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM0NmNhNGYyMDM0ZTZlYWMzMjg2NzBmIiwiZW1haWwiOiJhYmNkQGdtYWlsLmNvbSIsImlhdCI6MTY2NTU4NDQzMSwiZXhwIjoxNjY1NTkxNjMxfQ.9vqN76w3eQSIHkIrzgCAmbbmgqZkkhDaMt-OmAyKtsI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/template"
+			},
+			"response": []
+		},
+		{
+			"name": "Insert Appointment-doctor",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "\"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM0NTg5YTM1Njk4N2VhNjJjMzg3MzRlIiwiZW1haWwiOiJhYmNAZ21haWwuY29tIiwiaWF0IjoxNjY1NTAxNjAzLCJleHAiOjE2NjU1MDg4MDN9.ctmwsZfzuKk9fKzvOB1BuWO7--qzoZD5rZOxOUa5MZQ\"",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "x-access-token",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"startTime\": \"2022-12-22T10:00:59.00Z\",\n    \"endTime\": \"2022-12-22T11:00:59.00Z\",\n    \"patientEmail\": \"patient2@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/appointment"
+			},
+			"response": []
+		},
+		{
+			"name": "Insert Appointment-receptionist",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "\"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM0NTg5YTM1Njk4N2VhNjJjMzg3MzRlIiwiZW1haWwiOiJhYmNAZ21haWwuY29tIiwiaWF0IjoxNjY1NTAxNjAzLCJleHAiOjE2NjU1MDg4MDN9.ctmwsZfzuKk9fKzvOB1BuWO7--qzoZD5rZOxOUa5MZQ\"",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjNhMDcxNjIxMDczYTM0NGU3NzM1NDNiIiwiZW1haWwiOiJyZWNlcHRpb24xQGdtYWlsLmNvbSIsImlhdCI6MTY3MTQ3NDY2MywiZXhwIjoxNjcxNDgxODYzfQ.G7elorHFfGPfH-qE7prqAfD6IFq91mfGDKtUfxJZyI0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"startTime\": \"2022-12-22T13:00:59.00Z\",\n    \"endTime\": \"2022-12-22T14:00:59.00Z\",\n    \"patientEmail\": \"patient2@gmail.com\",\n    \"doctorEmail\": \"abcd@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/appointment"
+			},
+			"response": []
+		},
+		{
+			"name": "Insert Appointment-patient",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "\"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM0NTg5YTM1Njk4N2VhNjJjMzg3MzRlIiwiZW1haWwiOiJhYmNAZ21haWwuY29tIiwiaWF0IjoxNjY1NTAxNjAzLCJleHAiOjE2NjU1MDg4MDN9.ctmwsZfzuKk9fKzvOB1BuWO7--qzoZD5rZOxOUa5MZQ\"",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjNhMGFhNDM5MTBiNmQwNzkxMDQ2OTMwIiwiZW1haWwiOiJwYXRpZW50M0BnbWFpbC5jb20iLCJpYXQiOjE2NzE0NzQ5MDksImV4cCI6MTY3MTQ4MjEwOX0.tyfARKkDgHNA91XBPUlMhhzkXJ6fljmfx4cTZNGNHBA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"startTime\": \"2022-12-22T09:00:59.00Z\",\n    \"endTime\": \"2022-12-22T09:50:59.00Z\",\n    \"doctorEmail\": \"abcd@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/appointment"
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch patientinfo - doctor",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM5YzY3YWIyNDEyOTFjZDNjMGViYTU0IiwiZW1haWwiOiJhYmNkQGdtYWlsLmNvbSIsImlhdCI6MTY3MTQ4NzkxNSwiZXhwIjoxNjcxNDk1MTE1fQ.02SLYUVTRL3F2jO2aeb3_6EMe33OxN-YkD8ru4MTELA",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:5000/user/63a0aa43910b6d0791046930"
+			},
+			"response": []
+		},
+		{
+			"name": "Upload medical record",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjNhMGFhMzc5MTBiNmQwNzkxMDQ2OTJkIiwiZW1haWwiOiJwYXRpZW50MkBnbWFpbC5jb20iLCJpYXQiOjE2NzE0ODIxNTUsImV4cCI6MTY3MTQ4OTM1NX0.597k32w-SzX1pXYH8fevjY7Z7FquJEcwyeFcpGz6oao",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/isha/Desktop/courses/monsoon2022/btp2/BTP-2_Report_frontend.pdf"
+						}
+					]
+				},
+				"url": "http://localhost:5000/uploadrecord/63a0ae54eea7b6df0f36571e"
+			},
+			"response": []
+		}
+	]
+}
